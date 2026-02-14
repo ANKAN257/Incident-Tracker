@@ -15,3 +15,11 @@
 6. Zod validation
 
 # incident-traker
+- Functional Requirements
+- 
+
+# Database Design 
+- One-to-Many relationship.
+- eg. One User  →  Many Incidents
+1. Schema Mdoel:
+- 

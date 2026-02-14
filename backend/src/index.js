@@ -28,12 +28,8 @@ app.use(cookieParser());
 //Routes
 app.use("/api/users", userRoutes);
 
-app.get("/check", (req, res) => {
-  // console.log("cookies....................",req.cookies);
-  // res.clearCookie("accessToken");
 
-  res.json(req.cookies);
-});
+
 
   
 
