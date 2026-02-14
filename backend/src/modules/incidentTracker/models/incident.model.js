@@ -56,7 +56,7 @@ const incidentSchema = new mongoose.Schema(
     },
 
     
-    owner: {
+    assignTo: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: false,
@@ -114,5 +114,6 @@ incidentSchema.index({ status: 1 });
 incidentSchema.index({ createdAt: -1 });
 incidentSchema.index({ createdBy: 1 });
 incidentSchema.index({ ticketID: 1 });
+incidentSchema.index({ publicId: 1 })
 
 module.exports = mongoose.model("Incident", incidentSchema);

@@ -22,7 +22,7 @@ const authMiddleware = async (req, res, next) => {
       });
     }
 
-    req.user = user; // attach user to request
+    req.user = user; 
     next();
   } catch (err) {
     return res.status(401).json({
@@ -31,4 +31,4 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
-module.exports = authMiddleware;
+module.exports = {authMiddleware};
