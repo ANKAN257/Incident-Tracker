@@ -8,7 +8,7 @@ const port=process.env.PORT || 5000
 
 const dbConfig=require('./config/dbConfig');
 const userRoutes = require("./modules/user/routes/user.routes");
-
+const incidentRoutes  =require('./modules/incidentTracker/routes/incident.routes');
 
 // CORS
 app.use(cors({
@@ -26,12 +26,14 @@ app.use(cookieParser());
 
 
 //Routes
-app.use("/api/users", userRoutes);
+app.use("/api/auth", userRoutes);
 
+app.use("/api/incidents",incidentRoutes)
 
+// Test route
+app.get("/", (req, res) => res.send("API running"));
 
   
-
 
 
 app.listen(port,()=>{

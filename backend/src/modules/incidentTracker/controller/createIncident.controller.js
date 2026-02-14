@@ -22,14 +22,15 @@ const createIncident=async (req,res,next) => {
 
 
 
+
     const incident=await Incident.create({
         title,
         service,
         severity,
         priority,
-        assignTo: assignToId , // here created by can assign or anyone can assign to anyone 
-        summary: summary || "",
-        createdBy: req.user._id,
+        assignTo: assignToId ,  
+        summary: summary || null,
+        createdBy:  req.user._id ,
         status: status || "OPEN"
 
     });
@@ -44,6 +45,4 @@ const createIncident=async (req,res,next) => {
     }
 }
 
-module.exports={
-    createIncident
-}
+module.exports=createIncident

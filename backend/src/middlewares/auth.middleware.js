@@ -4,6 +4,8 @@ const User = require("../modules/user/model/user.model");
 
 const authMiddleware = async (req, res, next) => {
   try {
+  
+    
     const token = req.cookies.token;
 
     if (!token) {
@@ -12,17 +14,24 @@ const authMiddleware = async (req, res, next) => {
       });
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  
+    
 
-    const user = await User.findById(decoded.id).select("-password");
-
-    if (!user) {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+   
+    
+    req.user = await User.findById(decoded.id).select("-password");
+    
+    
+    if (!req.user) {
       return res.status(401).json({
         message: "User not found.",
       });
     }
+  
 
-    req.user = user; 
+
+ 
     next();
   } catch (err) {
     return res.status(401).json({
@@ -31,4 +40,4 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
-module.exports = {authMiddleware};
+module.exports = {authMiddleware} 

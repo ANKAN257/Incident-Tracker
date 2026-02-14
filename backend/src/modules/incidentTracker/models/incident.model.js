@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
+// const { randomUUID } = require("crypto");
 
 const incidentSchema = new mongoose.Schema(
   {
@@ -38,7 +39,7 @@ const incidentSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["OPEN", "IN_PROGRESS", "MITIGATED", "RESOLVED", "CLOSED"],
+      enum: ["OPEN", "MITIGATED", "RESOLVED","CLOSED"],
       default: "OPEN",
     },
 
@@ -93,7 +94,7 @@ incidentSchema.pre("save", async function (next) {
     const count = await mongoose.model("Incident").countDocuments();
     this.ticketID = `INC-${String(count + 1).padStart(4, "0")}`;
   }
-  next();
+ 
 });
 
 
@@ -106,14 +107,13 @@ incidentSchema.pre("save", function (next) {
       this.closedAt = new Date();
     }
   }
-  next();
+ 
 });
 
 incidentSchema.index({ severity: 1 });
 incidentSchema.index({ status: 1 });
 incidentSchema.index({ createdAt: -1 });
 incidentSchema.index({ createdBy: 1 });
-incidentSchema.index({ ticketID: 1 });
-incidentSchema.index({ publicId: 1 })
+
 
 module.exports = mongoose.model("Incident", incidentSchema);
