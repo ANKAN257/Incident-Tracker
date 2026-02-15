@@ -42,26 +42,31 @@ const seed =async()=>{
     try {
          await mongoose.connect(process.env.mongo_url);
          console.log("Connected to MongoDB"); 
-          // Hash password once — reuse for all users
-        const hashedPassword= await bcrypt.hash("password1234",10)
+       
        
         await User.deleteMany({});
 
      const admins = adminNames.map((admin) => ({
       username: admin.username,
       email:    admin.email,
-      password: hashedPassword,
+      password:  "password123",
       role: "admin",
     }));
     const users = userNames.map((user) => ({
       username: user.username,
       email:    user.email,
-      password: hashedPassword,
+      password: "password123",
       role:  "user",
     }));
 
-     await User.insertMany([...admins, ...users]);
-     process.exit(0);
+    for (const admin of admins) {
+      await User.create(admin);
+    }
+    for (const user of users) {
+      await User.create(user);
+    }
+
+    process.exit(0);
        
 
     } catch (error) {
