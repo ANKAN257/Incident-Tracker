@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors=require('cors');
 const app= express();
 const cookieParser = require('cookie-parser');
+const mongoSanitize = require('express-mongo-sanitize');
 const port=process.env.PORT || 5000
 
 const dbConfig=require('./config/dbConfig');
@@ -19,6 +20,7 @@ app.use(cors({
 
 
 // Middleware
+app.use(mongoSanitize());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // ⬅️ bodyParser is deprecated, use express built-in
 app.use(cookieParser());

@@ -5,7 +5,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "seed:users": "node src/seed/seedUsers.js",
+    "seed:incidents":"node src/seed/seedIncidents.js",
+    "seed":"npm run seed:users && npm run seed:incidents"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +21,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
+    "express-mongo-sanitize": "^2.2.0",
     "jsonwebtoken": "^9.0.3",
     "mongodb": "^7.1.0",
     "mongoose": "^9.2.1",
