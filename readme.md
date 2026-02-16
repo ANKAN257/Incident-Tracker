@@ -74,7 +74,10 @@
 1. Registration
 ![alt text](image.png)
 2. Login
-
+![alt text](image-1.png)
 3. Incidents-List
+![alt text](image-2.png)
 4. Incident-Details
+![alt text](image-3.png)
 5. Incident-Creation
+![alt text](image-4.png)
