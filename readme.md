@@ -67,3 +67,14 @@
 - npm run dev - Start server with nodemon
 - npm start   - Start server in production
 - npm run seed - Seed database with some records
+
+
+
+# Screenshot of Application
+1. Registration
+![alt text](image.png)
+2. Login
+
+3. Incidents-List
+4. Incident-Details
+5. Incident-Creation
