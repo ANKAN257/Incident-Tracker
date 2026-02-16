@@ -6,8 +6,8 @@ const User=require('../../user/model/user.model');
 const createIncident=async (req,res,next) => {
     try {
         const {title,service,severity,status,priority,assignTo,summary}=req.body;
-    if (!title || !service || !severity || !priority) {
-      return res.status(400).json({ message: "Title, description, service, and severity are required" });
+    if (!title || !service || !severity ) {
+      return res.status(400).json({ message: "title, description, service, and severity are required" });
     }
 
 

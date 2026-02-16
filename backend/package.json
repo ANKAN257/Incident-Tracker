@@ -7,8 +7,8 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "seed:users": "node src/seed/seedUsers.js",
-    "seed:incidents":"node src/seed/seedIncidents.js",
-    "seed":"npm run seed:users && npm run seed:incidents"
+    "seed:incidents": "node src/seed/seedIncidents.js",
+    "seed": "npm run seed:users && npm run seed:incidents"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "jsonwebtoken": "^9.0.3",
     "mongodb": "^7.1.0",
     "mongoose": "^9.2.1",
+    "nodemailer": "^8.0.1",
     "nodemon": "^3.1.11",
     "uuid": "^8.3.2",
     "zod": "^4.3.6"

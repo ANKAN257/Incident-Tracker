@@ -18,17 +18,23 @@ const updateIncident=async(req,res,next)=>{
         })
        }
 
-       // assign to someone via email
-       if(assignTo){
-             const assignee = await User.findOne({ email: assignTo });
-             if(!assignee){
-                return res.status(404).json({
-                    success:false,
-                    message: "user not found",
-                })
-             }
-             incident.assignTo=assignee._id
-       }
+
+    if (assignTo !== undefined) {
+  if (assignTo === "") {
+    incident.assignTo = null;
+  } else {
+    const assignee = await User.findOne({ email: assignTo });
+    if (!assignee) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+    incident.assignTo = assignee._id;
+  }
+}
+
+
 // Update only fields that are provided
 if(title)        incident.title=title
 if(service)      incident.service=service
