@@ -1,3 +1,21 @@
+# How to install  project
+- download repository
+1. For  backend
+- cd backend 
+- create .env file : 
+- mongo_url=  mongoDb Compass (local db)
+- JWT_SECRET_KEY= 
+- CLIENT_URL=
+- npm install
+- npm run dev
+
+2. For Frontend
+- cd frontend
+- create .env file 
+- VITE_SERVER_URL=
+- npm install
+- npm run dev
+
 # Incident Tracker Mini App
 - A full-stack application to create, browse, filter, and manage production incidents.
 - This project demonstrates backend API design, MongoDB indexing, server-side pagination, and clean architectural separation.
