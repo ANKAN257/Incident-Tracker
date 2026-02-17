@@ -95,6 +95,7 @@ This will create:
 
 ---
 
+
 # 🎨 Frontend Setup
 
 ### 1. Navigate to frontend folder
