@@ -234,3 +234,10 @@ incident-tracker/
 ![alt text](image-3.png)
 5. Incident-Creation
 ![alt text](image-4.png)
+
+
+
+# Docker setup
+- create Dockerfile
+- run = docker built -t backend-incident .
+- run container= docker run -p 5000:5000 backend-incident 

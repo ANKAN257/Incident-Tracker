@@ -1,0 +1,59 @@
+
+name: incident-tracker
+
+services:
+  mongo:
+    image: mongo:7.0.12
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - incident-tracker
+  api:
+    image: ankan257/incident-backend:1.0
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - incident-tracker
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+  
+  frontend:
+    image: ankan257/incident-frontend:1.0
+    # build:
+    #   context: ./frontend
+    #   dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ./frontend/.env
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - incident-tracker
+    ports:
+      - "5173:5173"
+    environment:
+     - HOST=0.0.0.0
+     
+    command: npm run dev
+    depends_on:
+      - api
+
+
+volumes:
+  mongo_data:
+networks:
+  incident-tracker:
+    driver: bridge
+    
