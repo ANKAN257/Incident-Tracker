@@ -99,7 +99,7 @@ This will create:
 - username = admin
 - email= admin@gmail.com
 - password= 123456789
-**=> then please run npm run seed**
+**=> then please run  "npm run seed" command**
 
 # 🎨 Frontend Setup
 
