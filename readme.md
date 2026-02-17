@@ -163,37 +163,7 @@ http://localhost:5173
 
 ---
 
-# 🌱 Seed Database
 
-To populate demo data:
-
-```bash
-npm run seed
-```
-
-Creates:
-- 20 Users  
-- 200 Incidents  
-
----
-
-# 📜 Available Scripts
-
-## Backend
-
-```bash
-npm run dev     # Start server with nodemon
-npm start       # Start production server
-npm run seed    # Seed database
-```
-
-## Frontend
-
-```bash
-npm run dev     # Start Vite development server
-```
-
----
 
 # 🏗 Project Structure
 
@@ -239,7 +209,7 @@ incident-tracker/
 
 # 👨‍💻 Author
 
-**Your Name**
+**Ankan Kumar**
 
 ---
 
