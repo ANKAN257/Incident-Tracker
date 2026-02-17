@@ -24,7 +24,7 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,6 +34,8 @@ export default function LoginPage() {
       });
 
       const data = await res.json();
+     
+      
 
       if (!res.ok) {
         throw new Error(data.message || "Login failed");
@@ -48,6 +50,9 @@ export default function LoginPage() {
       setLoading(false);
     }
   };
+
+
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 sm:px-6 lg:px-8">

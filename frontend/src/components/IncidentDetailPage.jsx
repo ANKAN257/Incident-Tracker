@@ -16,7 +16,7 @@ function IncidentDetailPage() {
 
   const fetchIncident = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/incidents/${id}`, {
+      const res = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/incidents/${id}`, {
         withCredentials: true, 
       });
       setIncident(res.data.data);
@@ -48,7 +48,7 @@ function IncidentDetailPage() {
         payload.assignTo = payload.assignTo.email || "";
       }
 
-      await axios.patch(`http://localhost:5000/api/incidents/${id}`, payload, {
+      await axios.patch(`${import.meta.env.VITE_SERVER_URL}/api/incidents/${id}`, payload, {
         withCredentials: true,
       });
       alert("Incident updated successfully");

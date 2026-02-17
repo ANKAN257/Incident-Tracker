@@ -15,9 +15,11 @@ const registerUser = async (data) => {
 
   return userObj;
 };
-
 const loginUser = async (email, password) => {
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ 
+    email: email.toLowerCase() 
+  });
+
   if (!user) throw new Error("Invalid credentials");
 
   const isMatch = await user.comparePassword(password);

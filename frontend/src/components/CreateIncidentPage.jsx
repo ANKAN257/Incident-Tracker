@@ -23,7 +23,7 @@ function CreateIncidentPage() {
   try {
 
     await axios.post(
-      "http://localhost:5000/api/incidents",
+      `${import.meta.env.VITE_SERVER_URL}/api/incidents`,
       {
         ...incident,
         severity: incident.severity.toUpperCase(),

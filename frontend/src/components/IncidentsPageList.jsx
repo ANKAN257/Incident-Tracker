@@ -49,7 +49,7 @@ const navigate = useNavigate();
     setLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:5000/api/incidents", {
+      const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/incidents`, {
         params: {
           service: filters.service,
           severity: filters.severity,
