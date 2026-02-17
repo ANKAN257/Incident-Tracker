@@ -223,6 +223,7 @@ incident-tracker/
 ![alt text](image-1.png)
 3. Incidents-List
 ![alt text](image-2.png)
+- here you can search by title , service, serverity , email
 4. Incident-Details
 ![alt text](image-3.png)
 5. Incident-Creation
