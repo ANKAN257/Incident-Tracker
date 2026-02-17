@@ -94,7 +94,12 @@ This will create:
 - 📌 200 sample incidents
 
 ---
-
+### 6 Note* please register/login
+- eg. 
+- username = admin
+- email= admin@gmail.com
+- password= 123456789
+**=> then please run npm run seed**
 
 # 🎨 Frontend Setup
 
