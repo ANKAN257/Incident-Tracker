@@ -13,7 +13,7 @@ const incidentRoutes  =require('./modules/incidentTracker/routes/incident.routes
 
 // CORS
 app.use(cors({
-  origin:'http://localhost:5173', 
+  origin:process.env.CLIENT_URL, 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, 
